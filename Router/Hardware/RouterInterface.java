@@ -1,7 +1,7 @@
 package OSPF_Sim.Router.Hardware;
 
-import OSPF_Sim.IPv4.IPv4Network;
-import OSPF_Sim.Router.Router;
+import OSPF_Sim.IPv4.NetAddress;
+import OSPF_Sim.IPv4.NetMask;
 
 /**
     A router interface has a lot more going on
@@ -33,7 +33,9 @@ public class RouterInterface {
         DOWN
     }
     
-    private IPv4Network network;  // optional
+    //private IPv4Network network;  // optional
+    private NetAddress ipaddr;
+    private NetMask netmask;
     private String interfaceName; // mandatory on construction
     private int capableBandwidth; // mandatory on construction, in Gigabits, i.e. 1 = 1G, 10 = 10G, 25 = 25G
     private int actualBandwidth;  // generated when connected to another interface
@@ -45,12 +47,16 @@ public class RouterInterface {
         this.capableBandwidth = capableBandwidth;
     }
 
-    public void setNetwork(IPv4Network newNetwork) {
-        this.network = newNetwork;
+    public void setNetwork(NetAddress ipaddr, NetMask netmask) {
+        this.ipaddr = ipaddr;
+        this.netmask = netmask;
     }
 
-    public IPv4Network getNetwork() {
-        return network;
+    public NetAddress getNetAddress() {
+        return ipaddr;
+    }
+    public NetMask getNetwork() {
+        return netmask;
     }
 
     public String getInterfaceName() {

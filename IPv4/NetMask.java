@@ -1,10 +1,25 @@
 package OSPF_Sim.IPv4;
 
-public class NetMask extends NetAddress {
+
+public class NetMask extends IPv4Value {
 
     public NetMask(int mask) {
-        super(mask);
-        //TODO Auto-generated constructor stub
+        if(validMask(mask)) {
+            this.value = mask;
+        }
+        else {
+            throw new IllegalArgumentException("Invalid NetMask provided.");
+        }
+    }
+
+    public NetMask(String mask) {
+        int val = stringToValue(mask);
+        if (validMask(val)) {
+            this.value = val;
+        }
+        else {
+            throw new IllegalArgumentException("Invalid NetMask provided.");
+        }
     }
     
     private boolean validMask(int mask) {
