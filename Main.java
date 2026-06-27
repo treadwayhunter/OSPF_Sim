@@ -9,7 +9,7 @@ public class Main {
         IPv4Value addr = new NetAddress("192.168.10.10");
         System.out.println(addr);
 
-        IPv4Value mask = new NetMask("999.999.999.999");
+        IPv4Value mask = new NetMask("255.255.255.192");
         System.out.println(mask);
 
         IPv4Value netid = new NetAddress(addr.getValue() & mask.getValue());
