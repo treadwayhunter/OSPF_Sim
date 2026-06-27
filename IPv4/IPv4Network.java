@@ -1,5 +1,9 @@
 package OSPF_Sim.IPv4;
 
+/**
+ * Deprecated
+ * IPv4Network
+ */
 public class IPv4Network {
  
     private NetAddress ipaddr;
