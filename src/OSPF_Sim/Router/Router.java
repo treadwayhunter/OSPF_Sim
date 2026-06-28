@@ -7,7 +7,8 @@ A router has interfaces and a routing table
     Interfaces connect to other interfaces by a link (an edge)
 
     - interfaces
-    - routing table
+    - adjacency table (up)
+    - routing table (up up)
         - static routes
         - dynamic routes
     - OSPF process
